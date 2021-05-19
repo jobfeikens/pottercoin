@@ -119,7 +119,7 @@ Wallet changes
 When creating a transaction with a fee above `-maxtxfee` (default 0.1 POT),
 the RPC commands `walletcreatefundedpsbt` and  `fundrawtransaction` will now fail
 instead of rounding down the fee. Beware that the `feeRate` argument is specified
-in POT per kilobyte, not litoshi per byte.
+in POT per kilobyte, not dobbys per byte.
 
 Documentation
 -------------
