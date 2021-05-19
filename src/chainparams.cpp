@@ -69,7 +69,7 @@ public:
         consensus.BIP34Hash = uint256S("fa09d204a83a768ed5a7c8d441fa62f2043abf420cff1226c7b4329aeb9d51cf");
         consensus.BIP65Height = 918684; // bab3041e8977e0dc3eeff63fe707b92bde1dd449d8efafb248c27c8264cc311a
         consensus.BIP66Height = 811879; // 7aceee012833fa8952f8835d8b1b3ae233cd6ab08fdb27a771d2bd7bdc491894
-        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); 
         consensus.nPowTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
         consensus.nPowTargetSpacing = 2.5 * 60;
         consensus.fPowAllowMinDifficultyBlocks = false;
@@ -124,7 +124,7 @@ public:
         // This is fine at runtime as we'll fall back to using them as a oneshot if they don't support the
         // service bits we want, but we should get them updated to support all service bits wanted by any
         // release ASAP to avoid it where possible.
-        vSeeds.emplace_back("dnsseed.vv32.nl");
+        vSeeds.emplace_back("vv32.nl");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,55);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
@@ -133,7 +133,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = {0x09, 0x88, 0xB2, 0x1E};
         base58Prefixes[EXT_SECRET_KEY] = {0x09, 0x88, 0xAD, 0xE4};
 
-        bech32_hrp = "pot";
+        bech32_hrp = "ltc";
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
@@ -226,7 +226,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = {0x09, 0x35, 0x87, 0xCF};
         base58Prefixes[EXT_SECRET_KEY] = {0x09, 0x35, 0x83, 0x94};
 
-        bech32_hrp = "tpot";
+        bech32_hrp = "tltc";
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
 
@@ -302,17 +302,22 @@ public:
         genesis = CreateGenesisBlock(1621103859, 0, 0x207fffff, 1, 10 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
+
+
+//        printf("%s\n", consensus.hashGenesisBlock.ToString().c_str());
+//        printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
+
         assert(consensus.hashGenesisBlock == uint256S("0x68404eccf2a7b6dca1930253ad4dd677dbd0d0c4e9e4ec5e9a7c98f8331f6ab1"));
         assert(genesis.hashMerkleRoot == uint256S("0x2bc4193256c4e46c41013797c70ffc0772e32a7a722c073faf77d0991253c30a"));
 
 
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
-        vSeeds.clear();      //!< Regtest mrltcode doesn't have any DNS seeds.
+        vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
 
         fDefaultConsistencyChecks = true;
         fRequireStandard = false;
-        fMineBlocksOnDemand = true;
+        fMineBlocksOnDemand = true; 
 
         checkpointData = {
             {
@@ -333,7 +338,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = {0x09, 0x35, 0x87, 0xCF};
         base58Prefixes[EXT_SECRET_KEY] = {0x09, 0x35, 0x83, 0x94};
 
-        bech32_hrp = "rpot";
+        bech32_hrp = "rltc";
 
         /* enable fallback fee on regtest */
         m_fallback_fee_enabled = true;
